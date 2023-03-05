@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Список задач</h1>
+        {% for task in tasks %}
+            <a href="{% url 'task_view' task.pk %}">
+                {% if task.type_id == 1 %}
+                    <div class="form-control" style="background: #ffcc99">
+                        <h3>{{ task.summary }}</h3>
+                        <p>{{ task.description }}</p>
+                    </div>
+                {% elif  task.type_id == 2 %}
+                    <div class="form-control" style="background: #ffe699">
+                        <h3>{{ task.summary }}</h3>
+                        <p>{{ task.description }}</p>
+                    </div>
+                {% elif  task.type_id == 3 %}
+                    <div class="form-control" style="background: #ffff99">
+                        <h3>{{ task.summary }}</h3>
+                        <p>{{ task.description }}</p>
+                    </div>
+                {% elif  task.type_id == 4 %}
+                    <div class="form-control" style="background: #e6ff99 ">
+                        <h3>{{ task.summary }}</h3>
+                        <p>{{ task.description }}</p>
+                    </div>
+                {% else %}
+                    <div class="form-control" style="background: #ccff99">
+                        <h3>{{ task.summary }}</h3>
+                        <p>{{ task.description }}</p>
+                    </div>
+                {% endif %}
+            </a>
+        {% endfor %}
+
+        <div class='my-legend'>
+            <div class='legend-title'>Цветовая легенда типов задач</div>
+                <div class='legend-scale'>
+                      <ul class='legend-labels'>
+                            <li><span style='background-color:#ffcc99;'></span>Задача</li>
+                            <li><span style='background-color:#ffe699;'></span>Баг</li>
+                            <li><span style='background-color:#ffff99;'></span>Улучшение</li>
+                            <li><span style='background-color:#e6ff99;'></span>В процессе</li>
+                            <li><span style='background-color:#ccff99;'></span>Остальное</li>
+                      </ul>
+                </div>
+        </div>
+
+    </div>
+{% endblock content %}

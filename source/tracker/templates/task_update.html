@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Update task{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>Обновить задание</h1>
+        <form action="{% url 'update_task' task.pk %}" method="post" class="form-add">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <input type="text" id="summary" name="summary" placeholder="Краткое описание" class="form-control" required value="{{ task.summary }}">
+                </div>
+
+                <div class="mb-3">
+                    <select id="status" name="status" required class="form-control">
+                            {% for choice in status_choices %}
+                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                            {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <select id="type" name="type" required class="form-control">
+                            {% for choice in type_choices %}
+                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                            {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <textarea id="description" name="description" placeholder="Описание" class="form-control" rows="4" required>{{ task.description }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="form-control submit" value="Обновить">
+                </div>
+
+            </form>
+  </div>
+{% endblock content %}

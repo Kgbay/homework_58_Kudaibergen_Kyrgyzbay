@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Task view{% endblock %}
+{% block content %}
+     <div class="container">
+          <div class="products-card">
+             <div class="card">
+                 <div class="card-body">
+                    <h1>Задача № {{ task.pk }}: {{ task.summary }}</h1>
+                    <h3>Описание: {{ task.description }}</h3>
+                     <p>Тип: {{ task.type }}<br>
+                     Статус: {{ task.status }}</p>
+                     <a href="{% url 'index' %}"  class="btn btn-success">Назад</a>
+                     <a href="{% url 'update_task' task.pk %}" class="btn btn-info">Редактировать</a>
+                     <a href="{% url 'remove_task' task.pk %}" class="btn btn-danger">Удалить</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}
