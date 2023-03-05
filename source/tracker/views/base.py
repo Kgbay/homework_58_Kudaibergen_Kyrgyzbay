@@ -4,7 +4,7 @@ from django.shortcuts import render
 from tracker.models import Task
 
 
-def index_view(request: WSGIRequest):
+def Index(request: WSGIRequest):
     tasks = Task.objects.exclude(is_deleted=True)
     context = {
         'tasks': tasks
