@@ -17,28 +17,28 @@ TYPE_CHOICES = (
 )
 
 
-class TaskForm(forms.Form):
-    # class Meta:
-    #     model = Task
-    #     fields = ('summary', 'status', 'type', 'description')
-    #     labels = {
-    #         'summary': 'Краткое описание',
-    #         'status': 'Статус',
-    #         'type': 'Тип',
-    #         'description': 'Полное описание'
-    #     }
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ('summary', 'description', 'status', 'type')
+        labels = {
+            'summary': 'Краткое описание',
+            'status': 'Статус',
+            'type': 'Тип',
+            'description': 'Полное описание'
+        }
 
-    summary = forms.CharField(max_length=100, required=True, label='Краткое описание')
-    status = forms.ChoiceField(required=True, label='Статус', choices=STATUS_CHOICES)
-    type = forms.ChoiceField(required=True, label='Тип', choices=TYPE_CHOICES)
-    description = forms.CharField(max_length=3000, required=False, label='Полное описание',
-                                  widget=widgets.Textarea)
-
-
-    summary.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Краткое описание'})
-    description.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Полное описание'})
-    status.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Статус'})
-    type.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Тип'})
+    # summary = forms.CharField(max_length=100, required=True, label='Краткое описание')
+    # status = forms.ChoiceField(required=True, label='Статус', choices=STATUS_CHOICES)
+    # type = forms.ChoiceField(required=True, label='Тип', choices=TYPE_CHOICES)
+    # description = forms.CharField(max_length=3000, required=False, label='Полное описание',
+    #                               widget=widgets.Textarea)
+    #
+    #
+    # summary.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Краткое описание'})
+    # description.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Полное описание'})
+    # status.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Статус'})
+    # type.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Тип'})
 
     def clean_summary(self):
         summary = self.cleaned_data.get('summary')
