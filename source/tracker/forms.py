@@ -18,10 +18,12 @@ TYPE_CHOICES = (
 )
 
 
+def max_len_validator(string, field):
+    if len(string) < 2:
+        raise ValidationError(f'{field} должен быть длиннее 2 символов')
+    return string
+
 class TaskForm(forms.ModelForm):
-
-
-
     class Meta:
 
         model = Task
@@ -39,23 +41,13 @@ class TaskForm(forms.ModelForm):
             'description': 'Полное описание'
         }
 
-    # summary = forms.CharField(max_length=100, required=True, label='Краткое описание')
-    # status = forms.ChoiceField(required=True, label='Статус', choices=STATUS_CHOICES)
-    # type = forms.ChoiceField(required=True, label='Тип', choices=TYPE_CHOICES)
-    # description = forms.CharField(max_length=3000, required=False, label='Полное описание',
-    #                               widget=widgets.Textarea)
-    #
-    #
-    # summary.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Краткое описание'})
-    # description.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Полное описание'})
-    # status.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Статус'})
-    # type.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Тип'})
-
     def clean_summary(self):
         summary = self.cleaned_data.get("summary")
-        if len(summary) < 2:
-            raise ValidationError("Краткое описание меньше 2 символов")
+        max_len_validator(summary, self.Meta.labels['summary'])
         if Task.objects.filter(summary=summary).exists():
             raise ValidationError("Краткое описание уже сужествует")
         return summary
 
+    def clean_description(self):
+        description = self.cleaned_data.get("description")
+        max_len_validator(description, self.Meta.labels['description'])
