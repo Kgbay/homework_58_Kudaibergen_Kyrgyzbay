@@ -6,10 +6,12 @@ class Task(models.Model):
     summary = models.CharField(
         max_length=100,
         null=False,
+        blank=False,
         verbose_name="Краткое описание")
     description = models.TextField(
         max_length=3000,
         null=True,
+        blank=True,
         verbose_name="Полное описание")
     status = models.ForeignKey(
         'tracker.Status',

@@ -18,10 +18,6 @@ TYPE_CHOICES = (
 )
 
 
-def max_len_validator(string, field):
-    if len(string) < 2:
-        raise ValidationError(f'{field} должен быть длиннее 2 символов')
-    return string
 
 class TaskForm(forms.ModelForm):
     class Meta:
@@ -41,13 +37,10 @@ class TaskForm(forms.ModelForm):
             'description': 'Полное описание'
         }
 
-    def clean_summary(self):
-        summary = self.cleaned_data.get("summary")
-        max_len_validator(summary, self.Meta.labels['summary'])
-        if Task.objects.filter(summary=summary).exists():
-            raise ValidationError("Краткое описание уже сужествует")
-        return summary
-
-    def clean_description(self):
-        description = self.cleaned_data.get("description")
-        max_len_validator(description, self.Meta.labels['description'])
+    def clean(self):
+        cleaned_data = super().clean()
+        if cleaned_data['summary'] == cleaned_data['description']:
+            raise ValidationError("Краткое и полное описание задачи не должны совпадать")
+        if len(cleaned_data['summary']) < 2 or len(cleaned_data['description']) < 2:
+            raise ValidationError("Длина поле должна быть больше двух символов")
+        return cleaned_data
