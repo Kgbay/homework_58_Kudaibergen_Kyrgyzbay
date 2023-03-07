@@ -66,14 +66,14 @@
   "model": "tracker.task",
   "pk": 1,
   "fields": {
-    "summary": "Создание шапки",
-    "description": "Необходимо создать шапку сайта",
+    "summary": "Создание шапки2",
+    "description": "Необходимо создать шапку сайта2",
     "status": 3,
-    "type": 1,
+    "type": 3,
     "created_at": "2023-03-02T06:35:37.229Z",
-    "updated_at": "2023-03-03T10:51:40.937Z",
+    "updated_at": "2023-03-06T04:39:47.603Z",
     "is_deleted": true,
-    "deleted_at": "2023-03-03T10:51:40.937Z"
+    "deleted_at": "2023-03-06T04:39:47.603Z"
   }
 },
 {
@@ -82,26 +82,26 @@
   "fields": {
     "summary": "Баги",
     "description": "Найти баги в программе",
-    "status": 2,
-    "type": 2,
+    "status": 3,
+    "type": 3,
     "created_at": "2023-03-02T11:40:36.606Z",
-    "updated_at": "2023-03-03T10:52:27.898Z",
+    "updated_at": "2023-03-05T13:01:14.145Z",
     "is_deleted": true,
-    "deleted_at": "2023-03-03T10:52:27.898Z"
+    "deleted_at": "2023-03-05T13:01:14.144Z"
   }
 },
 {
   "model": "tracker.task",
   "pk": 3,
   "fields": {
-    "summary": "Django bootstrap",
+    "summary": "Django bootstrap5",
     "description": "Оформление сайта с применением django bootrstrap",
     "status": 3,
     "type": 1,
     "created_at": "2023-03-02T11:41:33.627Z",
-    "updated_at": "2023-03-02T11:41:33.627Z",
-    "is_deleted": false,
-    "deleted_at": null
+    "updated_at": "2023-03-03T12:09:33.290Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-03T12:09:33.290Z"
   }
 },
 {
@@ -109,13 +109,13 @@
   "pk": 4,
   "fields": {
     "summary": "HTML разметка сайта",
-    "description": "Сконструировать html страницу с основными требованиями",
+    "description": "Сконструировать html страницу с основными требованиями и задачами",
     "status": 5,
     "type": 3,
     "created_at": "2023-03-02T11:43:20.961Z",
-    "updated_at": "2023-03-02T11:43:20.961Z",
-    "is_deleted": false,
-    "deleted_at": null
+    "updated_at": "2023-03-03T13:26:46.395Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-03T13:26:46.395Z"
   }
 },
 {
@@ -124,10 +124,178 @@
   "fields": {
     "summary": "Алгоритмизация и автоматизация задач",
     "description": "Создать программу основанную на применением алгоритмов на языке программирования Python",
+    "status": 3,
+    "type": 3,
+    "created_at": "2023-03-02T11:44:19.062Z",
+    "updated_at": "2023-03-05T16:48:34.041Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 22,
+  "fields": {
+    "summary": "Кибербезопасность",
+    "description": "Определение уязвимостей системы",
+    "status": 2,
+    "type": 2,
+    "created_at": "2023-03-05T13:01:44.545Z",
+    "updated_at": "2023-03-07T00:25:20.214Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:05.613Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 23,
+  "fields": {
+    "summary": "HTML",
+    "description": "Создание и поддержка тегов  HTML",
+    "status": 3,
+    "type": 2,
+    "created_at": "2023-03-05T13:02:07.766Z",
+    "updated_at": "2023-03-07T00:24:36.251Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:08.775Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 24,
+  "fields": {
+    "summary": "CSS",
+    "description": "Стилизация сайтов с применением CSS",
+    "status": 3,
+    "type": 2,
+    "created_at": "2023-03-05T13:04:21.098Z",
+    "updated_at": "2023-03-07T00:24:01.713Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:11.760Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 25,
+  "fields": {
+    "summary": "Монетизация игр",
+    "description": "Монетизация игр на Play Marker & AppleStore",
+    "status": 5,
+    "type": 2,
+    "created_at": "2023-03-05T13:04:56.306Z",
+    "updated_at": "2023-03-07T00:23:27.644Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:14.827Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 26,
+  "fields": {
+    "summary": "Разработка игр на ПК",
+    "description": "Game Dev",
+    "status": 5,
+    "type": 1,
+    "created_at": "2023-03-05T13:08:20.267Z",
+    "updated_at": "2023-03-06T05:02:34.774Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 27,
+  "fields": {
+    "summary": "Создание интерактивной карты",
+    "description": "Создание интерактивной карты и геопортала с применением JavaScript",
+    "status": 3,
+    "type": 2,
+    "created_at": "2023-03-05T13:10:57.552Z",
+    "updated_at": "2023-03-07T00:22:40.651Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:18.430Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 28,
+  "fields": {
+    "summary": "Linux системы",
+    "description": "Поддержка и определенине багов при конструировании операционной системы",
+    "status": 2,
+    "type": 2,
+    "created_at": "2023-03-05T13:13:06.887Z",
+    "updated_at": "2023-03-07T00:21:48.615Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:21.079Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 29,
+  "fields": {
+    "summary": "Автоматизация задач на ускорение операционной системы",
+    "description": "Решение задач по автоматиции с применением алгоритмизации и скриптов на Python",
     "status": 2,
     "type": 1,
-    "created_at": "2023-03-02T11:44:19.062Z",
-    "updated_at": "2023-03-02T11:44:19.062Z",
+    "created_at": "2023-03-05T13:15:44.323Z",
+    "updated_at": "2023-03-07T00:20:52.622Z",
+    "is_deleted": true,
+    "deleted_at": "2023-03-05T13:35:24.992Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 30,
+  "fields": {
+    "summary": "Разработка игр на Playstation",
+    "description": "Разработка игрового комплекса, Создание скриптов для взаимодействия с окружающей средой.",
+    "status": 2,
+    "type": 1,
+    "created_at": "2023-03-05T16:37:54.150Z",
+    "updated_at": "2023-03-07T00:18:29.285Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 31,
+  "fields": {
+    "summary": "Создание шапки",
+    "description": "Необходимо создать шапку для сайта на основе HTML",
+    "status": 5,
+    "type": 2,
+    "created_at": "2023-03-05T16:41:00.099Z",
+    "updated_at": "2023-03-06T05:28:29.497Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 32,
+  "fields": {
+    "summary": "Применение паттернов проектирования",
+    "description": "Фабричный метод проектирования для анализа и визуализации данных",
+    "status": 3,
+    "type": 1,
+    "created_at": "2023-03-06T05:51:18.972Z",
+    "updated_at": "2023-03-07T00:17:19.517Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 33,
+  "fields": {
+    "summary": "Тестирование нового приложение",
+    "description": "Провести новое тестирование программного обеспечения",
+    "status": 2,
+    "type": 1,
+    "created_at": "2023-03-06T05:51:34.634Z",
+    "updated_at": "2023-03-07T00:16:16.242Z",
     "is_deleted": false,
     "deleted_at": null
   }
@@ -461,7 +629,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$BZniAYQcwfOfjHpOcDMpsH$5+PAqhFyOAoaLCem7zWDUQGnXE+22C3pEqnlvdDxGfU=",
-    "last_login": "2023-03-02T05:37:33.047Z",
+    "last_login": "2023-03-07T00:14:59.894Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",
