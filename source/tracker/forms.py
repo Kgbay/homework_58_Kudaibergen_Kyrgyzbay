@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 from django.forms import widgets
 
 from .models import Task
@@ -18,9 +19,19 @@ TYPE_CHOICES = (
 
 
 class TaskForm(forms.ModelForm):
+
+
+
     class Meta:
+
         model = Task
         fields = ('summary', 'description', 'status', 'type')
+        widgets = {
+            'summary': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'description': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'type': forms.Select(attrs={'class': 'form-control form-control-lg'}),
+            'status': forms.Select(attrs={'class': 'form-control form-control-lg'})
+        }
         labels = {
             'summary': 'Краткое описание',
             'status': 'Статус',
@@ -41,7 +52,10 @@ class TaskForm(forms.ModelForm):
     # type.widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Тип'})
 
     def clean_summary(self):
-        summary = self.cleaned_data.get('summary')
+        summary = self.cleaned_data.get("summary")
         if len(summary) < 2:
-            raise ValidationError("Загаловок должен быть длиннее 2 символов")
+            raise ValidationError("Краткое описание меньше 2 символов")
+        if Task.objects.filter(summary=summary).exists():
+            raise ValidationError("Краткое описание уже сужествует")
         return summary
+

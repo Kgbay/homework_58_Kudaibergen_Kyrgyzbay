@@ -31,6 +31,8 @@ class TaskCreateView(TemplateView):
                                        description=form.cleaned_data['description'],
                                        status=status, type=type)
             return redirect('task_view', pk=task.pk)
+        return render(request, 'task_create.html',
+                      context={'form': form})
 
 
 class TaskUpdateView(TemplateView):
