@@ -1,0 +1,24 @@
+1.Закрытые задачи за последний месяц от текущей даты
+
+from tracker.models import Task, Type, Status
+task = Task.objects.filter(created_at__lt='2023-03-07 00:00:00', status_id=5)
+<QuerySet [<Task: Монетизация игр, Done, Bug>, <Task: HTML разметка сайта, Done, Enhancement>, <Task: Разработка игр на ПК, Done, Task>]>
+
+
+
+2.Задачи, имеющие один из указанных статусов И один из указанных типов
+
+from tracker.models import Task, Type, Status
+task = Task.objects.filter(status_id=2, type_id=1)
+
+<QuerySet [<Task: Разработка игр на ПК и на игровую консоль, New, Task>, <Task: Автоматизация задач на ускорение операционной системы, New, Task>, <Task: Разработка игр на Playstation, New, Task>, <Task: Тестирование, New, Task>, <Task: Визуализация полученных данных, New, Task>, <Task: Создание программы, New, Task>, <Task: Применение паттернов проектированияbb, New, Task>]>
+
+
+
+3.Задачи, в названии которых содержится слово "bug" в любом регистре или относящиеся к типу "Баг", имеющие НЕ закрытый статус.
+
+from tracker.models import Task, Type, Status
+task = Task.objects.filter(type_id=2, status_id=5)
+task
+<QuerySet [<Task: Монетизация игр, Done, Bug>]>
+
