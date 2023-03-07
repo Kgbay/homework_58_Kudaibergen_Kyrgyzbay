@@ -7,10 +7,10 @@ from .models import Type
 # Register your models here.
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('summary', 'description', 'created_at', 'status', 'type')
+    list_display = ('summary', 'description', 'created_at', 'status', 'type', 'is_deleted')
     list_filter = ('id', 'summary', 'created_at')
     search_fields = ('summary', 'description', 'created_at', 'updated_at')
-    fields = ('summary', 'description', 'status', 'type')
+    fields = ('summary', 'description', 'status', 'type', 'is_deleted')
     readonly_fields = ('id', 'updated_at')
 
 
